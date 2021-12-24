@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 class SignIn extends StatelessWidget {
   const SignIn({Key? key}) : super(key: key);
 
@@ -23,20 +26,32 @@ class SignIn extends StatelessWidget {
                height: 400.0,
 
                child: Column(
+                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                  children:  [
-                   Text('Sign in to continute'),
-                   Text('FARMERS\'STORE',style: TextStyle(fontSize:45.0 , color: Colors.white , shadows: [
-                     BoxShadow(
-                       blurRadius: 5.0,
-                       color: Colors.green.shade900,
-                       offset: Offset(3,3)
-                     )
-                   ]  ),),
+                   const Text('Sign in to continute' ,style: TextStyle(color: Colors.black , fontSize: 22.0,fontWeight: FontWeight.w700),),
+                   Text('Farmers\'Store',style: GoogleFonts.pacifico(textStyle: const TextStyle(fontSize: 45.0,fontWeight: FontWeight.w700,color: Colors.green) ),),
 
-                   SignInButton(
-                     Buttons.Google,
-                     text: "Sign up with Google",
-                     onPressed: () {},
+                    Column(
+                      children: [
+                        SignInButton(
+                          Buttons.Apple,
+                          text: "Sign up with Apple",
+                          onPressed: () {},
+                        ),
+
+                        SignInButton(
+                          Buttons.Google,
+                          text: "Sign up with Google",
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+
+                   Column(
+                     children: [
+                       Text('By signing in you are agreeing to our',style: TextStyle(color: Colors.grey[800],fontWeight: FontWeight.w700),),
+                       Text('Terms and privacy policy',style: TextStyle(color: Colors.grey[800],fontWeight: FontWeight.w700),),
+                     ],
                    )
 
                  ],
