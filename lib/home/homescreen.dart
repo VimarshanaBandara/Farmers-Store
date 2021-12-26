@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
-
+  Widget listTile({required IconData icon , required String title }){
+     return ListTile(
+       leading: Icon(icon , size: 32.0,),
+       title: Text(title,style: TextStyle(color: Colors.black54),),
+     );
+  }
   Widget singleProducts(){
 
     return  Container(
@@ -94,8 +99,86 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffcbcbcb),
-      drawer: const Drawer(),
+      backgroundColor: const Color(0xffcbcbcb),
+      drawer:  Drawer(
+        child: Container(
+          color: const Color(0xffd1ad17),
+           child: ListView(
+             children: [
+               DrawerHeader(
+                 child: Row(
+                   children: [
+                     const CircleAvatar(
+                       backgroundColor: Colors.white54,
+                       radius: 43.0,
+                       child: CircleAvatar(
+                         backgroundColor: Colors.red,
+                         radius: 40.0,
+                       ),
+                     ),
+                     const SizedBox(width: 20.0,),
+                     Column(
+                       mainAxisAlignment: MainAxisAlignment.center,
+                       children:  [
+                         const Text('Welcome Guest'),
+                         const SizedBox(height: 7.0,),
+                         Container(
+                           height:30.0,
+                           child: OutlineButton(
+                             onPressed: (){},
+                             child: const Text('Login'),
+                             shape: RoundedRectangleBorder(
+                               borderRadius: BorderRadius.circular(15.0),
+                               side: const BorderSide(width: 2.0)
+                             ),
+                           )
+                         )
+
+                       ],
+                     )
+                   ],
+                 ) ,
+               ),
+               listTile(icon: Icons.home_outlined, title:"Home" ),
+               listTile(icon: Icons.shop_outlined, title:"Review Cart" ),
+               listTile(icon: Icons.person_outlined, title:"My Profile" ),
+               listTile(icon: Icons.notifications_outlined, title:"Notification" ),
+               listTile(icon: Icons.favorite_outlined, title:"Rating & Review" ),
+               listTile(icon: Icons.copy_outlined, title:"Wishlist" ),
+               listTile(icon: Icons.home_outlined, title:"Raise a Complaint" ),
+               listTile(icon: Icons.format_quote_outlined, title:"FAQs" ),
+
+               Container(
+                 padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                 height: 350.0,
+                 child: Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                     const Text('Contact Support',style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold),),
+                     const SizedBox(height: 10.0,),
+                     Row(
+                       children: const [
+                         Text('Call us:'),
+                         Text('0766226030',style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold),),
+                       ],
+                     ),
+                     const SizedBox(height: 5.0,),
+                     Row(
+                       children: const [
+                         Text('Mail us:'),
+                         SizedBox(width: 10.0,),
+                         Text('vimarshanabandara76@gmail.com',style: TextStyle(color: Colors.black , fontWeight: FontWeight.bold),),
+                       ],
+                     )
+                   ],
+                 ),
+               )
+
+             ],
+           ),
+        )
+
+      ),
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: const Color(0xffd6b738),
@@ -120,7 +203,7 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body:  Padding(
-        padding: EdgeInsets.symmetric(vertical:10.0 , horizontal:10.0  ),
+        padding: const EdgeInsets.symmetric(vertical:10.0 , horizontal:10.0  ),
         child:ListView(
           children: [
             Container(
@@ -201,7 +284,7 @@ class HomeScreen extends StatelessWidget {
             ),
 
              Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
               child:  Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
@@ -223,7 +306,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(vertical: 8.0),
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
               child:  Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
